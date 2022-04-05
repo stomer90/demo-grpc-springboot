@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: grpc-akamaxping-server-01
+
+grpc:
+  server:
+    port: 9000

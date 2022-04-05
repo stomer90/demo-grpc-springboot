@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.akamaxping;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccountProto";
+
+message Account {
+  int32 account_id = 1;
+  string username = 2;
+  string address = 3;
+  bool gender = 4;
+  repeated Bank bank = 5;
+}
+
+message Bank {
+  int32 bank_id = 1;
+  int32 account_id = 2;
+  string bank_name = 3;
+  int32 status = 4;
+}
+
+service AccountService {
+  rpc getAccount(Account) returns(Account){}
+}

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: client-service
+  lifecycle:
+    timeout-per-shutdown-phase: "10s"
+
+grpc:
+  server:
+    shutdown-grace-period: "30s"
+  client:
+    account-grpc-server:
+      address: 'static://127.0.0.1:9091'   #'dns:///grpc-akamaxping-server:9000'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: PLAINTEXT
+    grpc-akamaxping-server:
+      address: 'static://127.0.0.1:9000'   #'dns:///grpc-akamaxping-server:9000'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: PLAINTEXT
+
+server:
+  shutdown: graceful
+  port: 8082
+
+
